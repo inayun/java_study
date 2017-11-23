@@ -1,9 +1,0 @@
-package ex_operator;
-
-public class Ex5_Operator {
-
-	public static void main(String[] args) {
-
-	}
-
-}
