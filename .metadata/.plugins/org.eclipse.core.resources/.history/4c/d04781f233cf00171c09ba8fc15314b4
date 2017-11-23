@@ -1,0 +1,10 @@
+package ex_value_type;
+
+public class Ex1_valueType {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

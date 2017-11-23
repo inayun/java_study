@@ -1,0 +1,20 @@
+package ex_operator;
+
+public class Ex3_Operator {
+
+	public static void main(String[] args) {
+
+		/*
+		 * 논리 연산자
+		 * 비교 연산자를 통한 연산이 2개 이상 필요할 때 사용
+		 * 
+		 */
+		int age = 20;
+		int limit = 25;
+		
+		boolean result = limit - age >= 5 && age > 20;
+		
+		
+	}
+
+}
