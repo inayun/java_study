@@ -1,0 +1,20 @@
+package ex_value_type;
+
+public class Ex3_valueType {
+
+	public static void main(String[] args) {
+
+		/*
+		 * Á¤¼öÇü
+		 * 
+		 */
+		
+		byte b = 127;
+		short s = 32767;
+		int n = 2100000000;
+		long l = 22000000000000L;
+		
+		System.out.println(l);
+	}
+
+}

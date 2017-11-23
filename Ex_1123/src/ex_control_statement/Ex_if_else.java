@@ -42,7 +42,7 @@ public class Ex_if_else {
 		System.out.println(str);
 		System.out.println("감사합니다.");
 		
-		
+		System.out.println("");
 		System.out.println("----삼항연산자로 계산----");
 		String result = age >= 30 ? "드실만큼 드셨군요." : "조금 더 드셔도 돼요.";
 		System.out.println(result);

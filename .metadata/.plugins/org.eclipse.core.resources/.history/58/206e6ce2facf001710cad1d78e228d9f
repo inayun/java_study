@@ -1,0 +1,28 @@
+package ex_control_statement;
+
+public class Ex_if_else {
+
+	public static void main(String[] args) {
+
+		/*
+		 * if(조건식) {
+		 * 조건식이 참일때 실행되는 영역
+		 *  } else {
+		 *  조건식이 거짓일때 실행되는 영역
+		 *  }
+		 */
+		
+		int n = 49;
+		String str = ""; //초기화
+		
+		if( ++n >= 50 ) {
+			str = "n은 50 이상의 수";
+		} else {
+			str = "n은 50 미만의 수";
+		}
+		
+		System.out.println(str);
+		System.out.println("-----");
+	}
+
+}
