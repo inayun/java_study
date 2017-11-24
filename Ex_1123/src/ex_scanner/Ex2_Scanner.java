@@ -18,11 +18,12 @@ public class Ex2_Scanner {
 		*/
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("정수를 두개 입력하세요. ");
+		System.out.print("첫번째 값을 입력하세요 : ");
 		int num1 = scanner.nextInt();
-		int num2= scanner.nextInt();
+		System.out.print("두번째 값을 입력하세요 : ");
+		int num2 = scanner.nextInt();
 
-		System.out.println("연산 기호를 입력하세요. + - * / 중 택1 ");
+		System.out.print("연산 기호를 입력하세요. (+ - * / 중 택1) :  ");
 		String operator = scanner.next();
 		
 		switch (operator) {
