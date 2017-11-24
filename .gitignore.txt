@@ -13,9 +13,7 @@ local.properties
 .loadpath
 .recommenders
 .classpath
-.factorypath
 .buildpath
-.target
 
 
 # External tool builders
