@@ -13,6 +13,7 @@ public class Ex3_work {
 		 */
 		
 		
+		System.out.println("-----------------规过1--------------------");		
 		for( int i = 1; i <=10; i++ ) {
 			
 			for( int j = i ; j <= 10 ; j++ ) {
@@ -23,6 +24,20 @@ public class Ex3_work {
 			}
 			System.out.println("");
 		}
+		
+		System.out.println("-----------------规过2--------------------");
+		for(int i = 1; i <= 10; i++) {
+			
+			for( int j = 0; j < 10; j++) {
+				int num = i + j;
+				if( num > 10 ) {
+					num -= 10;
+				}
+				System.out.print(num + " ");
+			}
+			System.out.println();
+		}
+
 	}
 
 }

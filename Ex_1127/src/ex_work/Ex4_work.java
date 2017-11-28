@@ -22,11 +22,29 @@ public class Ex4_work {
 		int input = scanner.nextInt();
 		
 		System.out.print(num1 + " " + num2 + " ");
+		
 		for ( int i = 0; i < input - 2; i++ ) {
 			add = num1 + num2;
 			System.out.print(add + " ");
 			num1 = num2;
 			num2 = add;
+		}
+		
+		
+		//-------------------¹æ¹ý2--------------
+		
+		int n1 = 1;
+		int n2 = 0;
+		int n3 = 0;
+				
+		int count = scanner.nextInt();
+		for( int i = 0; i < count; i++ ) {
+			
+			n2 = n3;
+			n3 = n1;
+			n1 = n2 + n3;
+			
+			System.out.print(n3 + " ");
 		}
 		
 	}
