@@ -38,6 +38,11 @@ public class Ex2_String_Method {
 		System.out.println(name.length()); //5개...
 		System.out.println(name2.length()); //3개
 		
+		//정수형태의 문자열을 실제 정수로 바꿔주는 메서드(기능) 
+		String number = "100";
+		int n = Integer.parseInt(number);
+		
+				
 		
 	}
 
