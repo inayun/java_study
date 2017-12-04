@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		Vending vending = new Vending();
-		vending.init(); //자판기 초기화
+		//vending.init(); //자판기 초기화
 		
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("insert coin : ");
