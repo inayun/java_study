@@ -5,8 +5,8 @@ import java.util.Random;
 public class WordList {
 
 	String[] wordArr = {"APPLE","ORANGE","HOPE","VIEW","CHANGE"};
-	String word;
-	String problem = "";
+	String word; //랜덤으로 뽑은 한 단어
+	String problem = ""; //단어의 순서를 바꿔서 만든 문제
 	int ranNum;
 	char[] alphabets;
 	boolean playing = true;
