@@ -6,21 +6,24 @@ import java.util.Scanner;
 public class ShowQuiz implements Runnable{
 
 	Scanner scanner = new Scanner(System.in);
-	int quizCount = 5;
-	int count = 0;
-	int time = 0;
-	boolean playing = true;
+	Random r = new Random();
+	final private int quizCount = 5;
+	private int count = 0;
+	private int time = 0;
+	private boolean isPlaying = true;
+	private int a,b,input;
 
+	
 	public void ShowQuiz() {
 
 		while(count < quizCount) {
 
-			int a = new Random().nextInt(50)+1;
-			int b = new Random().nextInt(50)+1;
+			a = r.nextInt(50)+1;
+			b = r.nextInt(50)+1;
 
 			System.out.print(a + "+" + b + "= ") ;
 
-			int input = scanner.nextInt(); 
+			input = scanner.nextInt(); 
 
 			if(input == a+b) {
 				count++;
@@ -34,7 +37,7 @@ public class ShowQuiz implements Runnable{
 	@Override
 	public void run() {
 
-		while(playing) {
+		while(isPlaying) {
 			try {
 				Thread.sleep(1000);
 				time++;
@@ -44,7 +47,8 @@ public class ShowQuiz implements Runnable{
 			
 			if(count == quizCount) {
 				System.out.println("°á°ú : " + time +"ÃÊ");
-				playing = false;
+				isPlaying = false;
+				break;
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 package ex1_set;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -18,6 +19,7 @@ public class Ex_Set {
 		 */
 
 		HashSet<Integer> hs = new HashSet();
+		HashSet<User> hu = new HashSet();
 
 		while(true) {
 			int r = new Random().nextInt(45) + 1;
@@ -27,8 +29,42 @@ public class Ex_Set {
 				break;
 
 		} //while	
+		
+		User user = new User();
+		user.setId("aaa");
+		user.setPwd(1111);
+		hu.add(user);
+		
+		//User user2 = new User();
+		user.setId("aaa");
+		user.setPwd(1111);
+		hu.add(user);
+		
+		System.out.println("----------hu------------");
+		System.out.println();
+
+		User[] arr = new User[hu.size()];
+		Iterator<User> all = hu.iterator();
+		
+		for( int i = 0; i<hu.size(); i++) {
+			arr[i] = all.next();
+			System.out.println(arr[i].getId());
+			System.out.println(arr[i].getPwd());
+
+		}
+		
+		
+		
 		System.out.println(hs);
 		System.out.println("----------------------");
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		/*
 		 * TreeSet
