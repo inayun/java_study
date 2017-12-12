@@ -1,0 +1,33 @@
+
+System.in 
+= 키보드를 의미
+= 1 byte씩 읽음
+
+File
+= 외부로 접근할 수 있는 클래스
+
+BufferedReader
+= 버퍼 메모리 활용
+= reader는  2byte씩 읽음을 의미
+
+InputStreamReader
+= 1byte와 2byte는 자동호환이 불가능하기 때문에
+InputStreamReader를 통해
+System.in(1byte read) 과
+BufferedReader(2byte read)를 호환해줌
+
+
+BufferedReader reader = new BufferedReader(System.in);   //(x)
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+
+BufferedWriter
+= file에 2byte씩 출력하는 객체
+
+FileWriter
+= 문자 단위의 출력을 제어
+= 2byte씩 출력
+
+FileInputStream 
+= 1byte씩 읽음 (영어, 숫자, 특수문자 읽을때 사용하나봄)
+
