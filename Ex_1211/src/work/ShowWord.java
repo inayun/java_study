@@ -14,7 +14,7 @@ public class ShowWord implements Runnable{
 
 	public void showWord() {
 
-		wordList.add(word[new Random().nextInt(3)]);
+		wordList.add(word[new Random().nextInt(word.length)]);
 		
 		while(isPlaying) {
 			
@@ -31,6 +31,9 @@ public class ShowWord implements Runnable{
 				System.out.println("¡Ú¡Ù¡Ú¡ÙÅ¬¸®¾î!¡Ú¡Ù¡Ú¡Ù");
 				isPlaying = false;
 			}
+		} //while
+		if(scanner != null) {
+			scanner.close();
 		}
 	}
 
@@ -40,7 +43,7 @@ public class ShowWord implements Runnable{
 		while(isPlaying) {
 			try {
 				Thread.sleep(3000);
-				wordList.add(word[new Random().nextInt(3)]);
+				wordList.add(word[new Random().nextInt(word.length)]);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
