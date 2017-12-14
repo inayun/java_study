@@ -36,38 +36,41 @@ public class SearchFood {
 			} //middle
 		} //top
 		if(foodArrForUser.size() != 0) {
-			
+
 			for(int i = 0; i < foodArrForUser.size(); i++) {
 				System.out.printf("%d. %s\n",i+1,foodArrForUser.get(i).getFoodName());
 			}
-			
+
 			System.out.println("------------------------------");
 			return true;
+			
+		} else {
+			System.out.println("해당재료에 대한 데이터가 없음");
+			System.out.println("------------------------------");
 		}
-		
-	return false;	
-		
+		return false;	
+
 	} //searchFood
 
-		/*
-		 *  TODO
-		 *  입력한 재료들이 데이터에 없으면( 만약 foodArrForUser의 사이즈가  0이면 )
-		 *  "해당재료에 대한 데이터가 없습니다." 출력할것
-		 *  
-		 */
 
 	public User showFoodRecipe(User user) {
 		this.user = user;
-		
+
 		int count = 0;
 		int i = 0;
+		boolean isMenu = false;
 		String input="";
-		
+
 		outer : while(true) {
 
-			System.out.print(">> 위의 리스트 중 레시피를 보고 싶은 음식의 이름을 적어주세요 : ");
+			System.out.print(">> 위의 리스트 중 레시피를 보고 싶은 음식의 이름을 적어주세요(메뉴가기:m) : ");
 			input = scanner.nextLine();
 			System.out.println();
+			
+			if(input.equalsIgnoreCase("m")) {
+				isMenu = true;
+				break outer;
+			}
 
 			for(i = 0; i <foodArrForUser.size(); i++) {
 
@@ -84,9 +87,8 @@ public class SearchFood {
 
 		if(count == foodArrForUser.size()) {
 			System.out.println("잘못된 입력입니다. 다시 입력해주세요!");
-		} else {
+		} else if(isMenu==false && count != foodArrForUser.size()){
 			System.out.print(">> 해당 음식을 나의 칼로리포켓에 담겠습니까? (y|n): ");
-
 			input = scanner.next();
 			if(input.equalsIgnoreCase("Y")) {
 				// 나의 칼로리 리스트에 담기
@@ -94,7 +96,10 @@ public class SearchFood {
 				System.out.println("담기 완료!");
 				System.out.println("------------------------------");
 			} 
+		} else if(isMenu) {
+			
 		}
+		
 		return user;
 	}	
 }

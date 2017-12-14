@@ -12,12 +12,20 @@ public class MyCalorie {
 	
 	public void calculator(User user, ArrayList<Food> foodArr) {
 		this.foodArr = foodArr;
+		float myCalorie = 0;
 		
 		System.out.println("<나의 칼로리 포켓 리스트>");
 		
 		for(int i = 0; i < user.getFoodList().size(); i++) {
 			System.out.printf("%d. %s \n", i+1, user.getFoodList().get(i).getFoodName());
 		}
+		
+		for(Food food : user.getFoodList()) {
+			myCalorie += food.getCalorie();
+		}
+		
+		System.out.println("나의 칼로리 : " + myCalorie + "cal");
+		
 		System.out.println("------------------------------");
 
 	}
