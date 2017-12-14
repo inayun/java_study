@@ -1,9 +1,10 @@
 package refrigerator_project;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Food {
+public class Food implements Serializable{
 
 	private String foodName; //음식 이름
 	private String ingredient; //재료
