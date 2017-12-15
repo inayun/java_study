@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class UserLoader {
-	private User user;
+	private User user = null;
 
 	public User getUser() {
 		return user;
@@ -28,8 +28,9 @@ public class UserLoader {
 				fis = new FileInputStream(file);
 				ois = new ObjectInputStream(fis);
 				this.user = (User)ois.readObject();
-				System.out.println(user.getId() + "¥‘ æ»≥Á!");
-
+				System.out.println(user.getId() + "¥‘ æ»≥Á«œººø‰!");
+				System.out.println();
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("∑ŒµÂ Ω«∆–!");

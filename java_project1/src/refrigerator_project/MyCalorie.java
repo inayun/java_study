@@ -6,9 +6,10 @@ import java.util.Scanner;
 public class MyCalorie {
 	//아이디별로 담아놓은 음식들 메모장에 입 출력하기
 
-	ArrayList<Food> foodArr = new ArrayList();
-	User user = new User();
-	Scanner scanner = new Scanner(System.in);
+	private ArrayList<Food> foodArr = null;
+	private User user = null;
+	private Scanner scanner;
+
 
 	public User getUser() {
 		return user;
@@ -66,12 +67,12 @@ public class MyCalorie {
 	public boolean DeleteMyfood(User user) {
 		this.user = user;
 		int count;
+		scanner = new Scanner(System.in);
 
 		outer : while(true) {
 			count = 0;
-			System.out.print("나의 칼로리 포켓에서 삭제하고 싶은 음식의 이름을 입력해주세요(메뉴가기:m) : ");
+			System.out.print("나의 칼로리 포켓에서 '삭제'하고 싶은 음식의 '이름'을 입력해주세요(메뉴가기:m) : ");
 			String input = scanner.nextLine();
-
 
 			if(input.equalsIgnoreCase("m")) {
 				return true;
@@ -87,7 +88,6 @@ public class MyCalorie {
 					count++;
 				}
 			}
-			
 			if(count == user.getFoodList().size()) {
 				System.out.println("입력이 올바르지 않습니다. 다시 입력해주세요.");
 				continue outer;

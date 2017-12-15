@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class UserWriter {
+	private User user;
 	
 	public UserWriter(User user) throws IOException {
+		this.user = user;
 
 		String path = "c:/java_study/refrigerator_project/" 
 				+ user.getId() + "/InfoSave.txt";

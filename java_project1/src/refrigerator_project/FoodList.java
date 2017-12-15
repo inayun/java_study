@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class FoodList {
 
-	ArrayList<Food> foodArr = new ArrayList();
-
-	public ArrayList<Food> insertFood() {
-
+	private ArrayList<Food> foodArr = null;
+	public FoodList() {
+		foodArr = new ArrayList<Food>();
 		foodArr.add( new Food("돼지고기 김치찌개",
 				"김치, 돼지고기, 두부, 버섯, 고추",
 				182,
@@ -107,7 +106,7 @@ public class FoodList {
 						"\r\n" + 
 						"07. 참기름을 넣고 골고루 섞는다.\r\n" + 
 						"\r\n" + 
-						"08. 생면을 뜨거운 물에 담가 따뜻하게 한 후에 07 소스를 올린다.\r\n"));
+						"08. 생면을 뜨거운 물에 담가 따뜻하게 한 후에 소스를 올린다.\r\n"));
 
 		foodArr.add( new Food("계란 장조림",
 				"달걀 4개(200g), 당근 1/4개(50g)",  
@@ -137,6 +136,9 @@ public class FoodList {
 						"\r\n"+
 				"06. 치킨 파우더, 굴소스, 후춧가루를 넣고 더 끓인다.\r\n"));
 
+	}
+	
+	public ArrayList<Food> getFoodArr(){
 		return foodArr;
 	}
 }

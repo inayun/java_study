@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class User implements Serializable{
 
 	private String id;
-	private ArrayList<Food> foodList;
+	private ArrayList<Food> foodList = null;
 
 	public User() {
 		foodList = new ArrayList<Food>();

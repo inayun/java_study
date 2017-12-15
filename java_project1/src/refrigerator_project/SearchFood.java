@@ -7,10 +7,10 @@ public class SearchFood {
 
 	//음식 재료 입력해서 해당 재료 포함하는 음식 추천
 
-	ArrayList<Food> foodArr = new ArrayList();
 	Scanner scanner = new Scanner(System.in);
-	ArrayList<Food> foodArrForUser = new ArrayList();
-	User user = new User();
+	private ArrayList<Food> foodArr;
+	private ArrayList<Food> foodArrForUser = new ArrayList();
+	private User user = null;
 	
 	public User getUser() {
 		return user;
@@ -25,20 +25,20 @@ public class SearchFood {
 		//입력한 재료들을 띄어씌기로 자르기
 		String[] userIngred = input.split("\\s"); 
 
-		top : for(int i = 0; i < userIngred.length; i++) {
+		 for(int i = 0; i < userIngred.length; i++) {
 			middle : for(int j = 0; j < foodArr.size(); j++) {
 
 				if(foodArr.get(j).getIngredient().contains(userIngred[i])) {
 
-					bottom : for(Food food : foodArrForUser) {
+					 for(Food food : foodArrForUser) {
 						if(food.getFoodName().equals(foodArr.get(j).getFoodName())) {
 							continue middle;
 						}
-					} //bottom
+					} 
 				foodArrForUser.add(foodArr.get(j));
 				} 
-			} //middle
-		} //top
+			} 
+		} 
 		if(foodArrForUser.size() != 0) {
 
 			for(int i = 0; i < foodArrForUser.size(); i++) {
@@ -49,7 +49,7 @@ public class SearchFood {
 			return true;
 			
 		} else {
-			System.out.println("해당재료에 대한 데이터가 없음");
+			System.out.println("해당 재료에 대한 데이터가 없습니다.");
 			System.out.println("------------------------------");
 		}
 		return false;	
@@ -57,10 +57,10 @@ public class SearchFood {
 	} //searchFood
 
 
-	public User showFoodRecipe(User user) {
+	public void showFoodRecipe(User user) {
 		this.user = user;
 
-		int count;
+		int count = 0;
 		int index = 0;
 		boolean isMenu = false;
 		String input="";
@@ -68,7 +68,7 @@ public class SearchFood {
 		outer : while(true) {
 			count = 0;
 			
-			System.out.print(">> 위의 리스트 중 레시피를 보고 싶은 음식의 이름을 적어주세요(메뉴가기:m) : ");
+			System.out.print(">> 위의 리스트 중 '레시피'를 보고 싶은 음식의 '이름'을 적어주세요(메뉴가기:m) : ");
 			input = scanner.nextLine();
 			System.out.println();
 			
@@ -81,6 +81,8 @@ public class SearchFood {
 
 				if(foodArrForUser.get(i).getFoodName().equals(input)) {
 					System.out.println("<" + foodArrForUser.get(i).getFoodName() +">");
+					System.out.println(foodArrForUser.get(i).getIngredient());
+					System.out.println();
 					System.out.println(foodArrForUser.get(i).getRecipe());
 					index = i;
 					break inner;
@@ -98,7 +100,7 @@ public class SearchFood {
 		
 		
 		if(isMenu==false && count != foodArrForUser.size()){
-			System.out.print(">> 해당 음식을 나의 칼로리포켓에 담겠습니까? (y|n): ");
+			System.out.print(">> 해당 음식을 나의 칼로리 포켓에 담겠습니까? (y|n): ");
 			input = scanner.next();
 			if(input.equalsIgnoreCase("Y")) {
 				// 나의 칼로리 리스트에 담기
@@ -107,8 +109,6 @@ public class SearchFood {
 				System.out.println("------------------------------");
 			} 
 		} else if(isMenu) {
-			
 		}
-		return user;
 	}	
 }
