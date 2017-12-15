@@ -53,7 +53,14 @@ public class Main {
 
 			case 3: //유저가 섭취한 음식들 칼로리 계산
 				MyCalorie myCal = new MyCalorie();
-				myCal.calculator(user, foodArr);
+				
+				if(myCal.calculator(user, foodArr)) {
+					user = myCal.getUser();
+					if(myCal.DeleteMyfood(user)) {
+						user = myCal.getUser();
+						break inner;
+					}
+				} 
 				break inner;
 
 			case 4: //종료

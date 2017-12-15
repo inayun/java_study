@@ -19,6 +19,9 @@ public class User implements Serializable{
 	public void setFoodList(Food food) {
 		foodList.add(food);
 	}
+	public void deleteFoodList(int i) {
+		foodList.remove(i);
+	}
 	public ArrayList<Food> getFoodList() {
 		return foodList;
 	}

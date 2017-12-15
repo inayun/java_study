@@ -11,6 +11,10 @@ public class SearchFood {
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<Food> foodArrForUser = new ArrayList();
 	User user = new User();
+	
+	public User getUser() {
+		return user;
+	}
 
 	public boolean searchFood(ArrayList<Food> foodArr) {
 		this.foodArr = foodArr;
@@ -56,13 +60,14 @@ public class SearchFood {
 	public User showFoodRecipe(User user) {
 		this.user = user;
 
-		int count = 0;
-		int i = 0;
+		int count;
+		int index = 0;
 		boolean isMenu = false;
 		String input="";
 
 		outer : while(true) {
-
+			count = 0;
+			
 			System.out.print(">> 위의 리스트 중 레시피를 보고 싶은 음식의 이름을 적어주세요(메뉴가기:m) : ");
 			input = scanner.nextLine();
 			System.out.println();
@@ -72,34 +77,38 @@ public class SearchFood {
 				break outer;
 			}
 
-			for(i = 0; i <foodArrForUser.size(); i++) {
+			inner : for(int i = 0; i <foodArrForUser.size(); i++) {
 
 				if(foodArrForUser.get(i).getFoodName().equals(input)) {
 					System.out.println("<" + foodArrForUser.get(i).getFoodName() +">");
 					System.out.println(foodArrForUser.get(i).getRecipe());
-					break outer;
+					index = i;
+					break inner;
 				} else {
 					count++;
 				}
+			} //inner
+			
+			if(count == foodArrForUser.size()) {
+				System.out.println("잘못된 입력입니다. 다시 입력해주세요!");
+				continue outer;
 			}
-
+			break outer;
 		} //while
-
-		if(count == foodArrForUser.size()) {
-			System.out.println("잘못된 입력입니다. 다시 입력해주세요!");
-		} else if(isMenu==false && count != foodArrForUser.size()){
+		
+		
+		if(isMenu==false && count != foodArrForUser.size()){
 			System.out.print(">> 해당 음식을 나의 칼로리포켓에 담겠습니까? (y|n): ");
 			input = scanner.next();
 			if(input.equalsIgnoreCase("Y")) {
 				// 나의 칼로리 리스트에 담기
-				user.setFoodList(foodArrForUser.get(i));
+				user.setFoodList(foodArrForUser.get(index));
 				System.out.println("담기 완료!");
 				System.out.println("------------------------------");
 			} 
 		} else if(isMenu) {
 			
 		}
-		
 		return user;
 	}	
 }

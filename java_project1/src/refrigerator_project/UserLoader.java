@@ -31,6 +31,7 @@ public class UserLoader {
 				System.out.println(user.getId() + "´Ô ¾È³ç!");
 
 			} catch (Exception e) {
+				e.printStackTrace();
 				System.out.println("·Îµå ½ÇÆÐ!");
 			} finally {
 

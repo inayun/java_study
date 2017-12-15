@@ -9,24 +9,89 @@ public class MyCalorie {
 	ArrayList<Food> foodArr = new ArrayList();
 	User user = new User();
 	Scanner scanner = new Scanner(System.in);
-	
-	public void calculator(User user, ArrayList<Food> foodArr) {
+
+	public User getUser() {
+		return user;
+	}
+
+	public boolean calculator(User user, ArrayList<Food> foodArr) {
+
 		this.foodArr = foodArr;
+		this.user = user;
 		float myCalorie = 0;
-		
+		float standard  = 600;
+
 		System.out.println("<³ªÀÇ Ä®·Î¸® Æ÷ÄÏ ¸®½ºÆ®>");
-		
+
 		for(int i = 0; i < user.getFoodList().size(); i++) {
 			System.out.printf("%d. %s \n", i+1, user.getFoodList().get(i).getFoodName());
 		}
-		
+
 		for(Food food : user.getFoodList()) {
 			myCalorie += food.getCalorie();
 		}
-		
+
 		System.out.println("³ªÀÇ Ä®·Î¸® : " + myCalorie + "cal");
-		
+		System.out.println();
+
+		if(  myCalorie - standard < 0 ) {
+			//Á¦ÀÏ¸»¶úÀ»¶§
+			System.out.println("(x_x)"+" ±¾¾îÁ×°ÚÀ½" );
+		}else if( 0 <= myCalorie - standard &&  myCalorie - standard < 200  ) {
+			System.out.println("(;_;)"+"¹è°íÆÄ¼­ ´«¹°³²"); //´ú¸¶¸¥
+		}else if( 201 <= myCalorie - standard &&  myCalorie - standard < 400  ) {
+			System.out.println("( +_+)"+"¹è°íÇÄ.."); //´ú¸¶¸¥
+		}else if( 401 <= myCalorie - standard &&  myCalorie - standard < 600  ) {
+			System.out.println("( o_o)"+"¹¹¸ÔÁö?"); //Á¤»ó
+		}else if( 601 <= myCalorie - standard &&  myCalorie - standard < 800  ) {
+			System.out.println(" ( o _o)"+"»ìÂð°Å°°¾Æ"); //Á¶±Ý¶×¶×
+		}else if( 801 <= myCalorie - standard &&  myCalorie - standard < 1000  ) {
+			System.out.println("  ( ' ¤Ñ  ')"+"Ä®·Î¸®ÃÊ°ú ¶×¶×"); //¶×¶×
+		}else if( 1001 <= myCalorie - standard &&  myCalorie - standard < 1200  ) {
+			System.out.println("  ( -  ¤Ñ   - )"+"³Ê¹«¸¹ÀÌ¸ÔÀ½"); //¸¹ÀÌ¶×¶×
+		}else if( 1201 <= myCalorie - standard &&  myCalorie - standard < 1400  ) {
+			System.out.println("( ; -  ¤Ñ¤Ñ    -  )"+"½º¸ð¼±¼ö°°¾Æ"); //½É°¢ÇÑ¶×¶×
+		}else if( 1401 <= myCalorie - standard &&  myCalorie - standard < 1600  ) {
+			System.out.println("( ; -    X    -)"+"°íµµºñ¸¸");//¿Õ¶×¶×
+		}
+
 		System.out.println("------------------------------");
 
+		if(myCalorie == 0) {
+			return false;
+		} 
+		return true;
+	}
+
+	public boolean DeleteMyfood(User user) {
+		this.user = user;
+		int count;
+
+		outer : while(true) {
+			count = 0;
+			System.out.print("³ªÀÇ Ä®·Î¸® Æ÷ÄÏ¿¡¼­ »èÁ¦ÇÏ°í ½ÍÀº À½½ÄÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä(¸Þ´º°¡±â:m) : ");
+			String input = scanner.nextLine();
+
+
+			if(input.equalsIgnoreCase("m")) {
+				return true;
+			}
+
+			for(int i = 0; i < user.getFoodList().size(); i++) {
+
+				if(user.getFoodList().get(i).getFoodName().equals(input)) {
+					user.deleteFoodList(i);
+					System.out.println("»èÁ¦ ¿Ï·á!");
+					continue outer;
+				} else {
+					count++;
+				}
+			}
+			
+			if(count == user.getFoodList().size()) {
+				System.out.println("ÀÔ·ÂÀÌ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				continue outer;
+			}
+		} //while
 	}
 }

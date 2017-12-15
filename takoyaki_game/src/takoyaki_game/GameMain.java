@@ -11,7 +11,6 @@ public class GameMain {
 		gameplay.makeTako();
 		thread.start();
 		gameplay.makeQuiz();
-		
 	}
 
 }
