@@ -49,7 +49,6 @@ public class View {
 			}
 			
 			inner : switch(num) {
-			
 			case 1: // 재료 입력해서 요리추천
 				SearchFood searchFo = new SearchFood();
 				if(searchFo.searchFood(foodArr)) {

@@ -10,10 +10,11 @@ public class SearchNutrient {
 
 	public void searchNutrient(ArrayList<Food> foodArr) {
 		this.foodArr = foodArr;
+		int count = 0;
 
+		System.out.println(foodArr.size());
 		System.out.print("음식 검색 : ");
 		String input = scanner.nextLine();
-		int count = 0;
 		
 		for (int i = 0; i < foodArr.size(); i++) {
 			if(   foodArr.get(i).getFoodName().equals(input)  )  {
@@ -26,9 +27,9 @@ public class SearchNutrient {
 			}
 		} //for
 		
-		if (count == foodArr.size())
+		if (count == foodArr.size()) {
 		System.out.println("해당하는 음식이 없습니다.");
-			
-		scanner.close();
+		}
+		System.out.println("------------------------------");
 	}
 }

@@ -20,7 +20,7 @@ public class MyCalorie {
 		this.foodArr = foodArr;
 		this.user = user;
 		float myCalorie = 0;
-		float standard  = 600;
+		float standard  = 2300;
 
 		System.out.println("<나의 칼로리 포켓 리스트>");
 
