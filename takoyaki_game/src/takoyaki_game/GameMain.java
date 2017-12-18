@@ -6,11 +6,13 @@ public class GameMain {
 
 		GamePlay gameplay = new GamePlay();
 		Thread thread = new Thread(gameplay);
-		System.out.println("     TAKOYAKI     ");
-		gameplay.gamePlay();
+		
+		if(gameplay.gamePlay()) {
 		gameplay.makeTako();
 		thread.start();
 		gameplay.makeQuiz();
+		gameplay.checkMoney();
+		}
 	}
 
 }
