@@ -19,6 +19,8 @@ public class User implements Serializable{
 	public void setMoney(int money) {
 		this.money += money;
 	}
-	
+	public void setFinalMoney(int money) {
+		this.money = money;
+	}
 	
 }

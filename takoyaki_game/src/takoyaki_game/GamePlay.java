@@ -17,7 +17,10 @@ public class GamePlay implements Runnable{
 	String[] process = {"◎","◐","●","＃"};
 
 	public GamePlay() {}
-
+	
+	public int getMoney() {
+		return money;
+	}
 	public boolean gamePlay() {
 		
 		System.out.println("==================");
@@ -59,7 +62,7 @@ public class GamePlay implements Runnable{
 
 	public void makeTako() {
 		
-		order = new Random().nextInt(15)+1;
+		order = new Random().nextInt(18)+1;
 		System.out.printf("타코야키 %d개 주문이요!\n",order);
 
 		outer : for(int i = 0; i < order; i++) {
@@ -160,6 +163,18 @@ public class GamePlay implements Runnable{
 		}
 		System.out.println("저장완료!");
 	}
+	public void checkMoney(int money) {
+		
+		user.setFinalMoney(money);
+		System.out.println(user.getMoney());
+		try {
+			UserWriter writer = new UserWriter(user);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("저장완료!");
+	}
+	
 
 	public void run() {
 

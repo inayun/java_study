@@ -20,7 +20,7 @@ public class MyCalorie {
 		this.foodArr = foodArr;
 		this.user = user;
 		float myCalorie = 0;
-		float standard  = 2300;
+		float standard  = 1000;
 
 		System.out.println("<³ªÀÇ Ä®·Î¸® Æ÷ÄÏ ¸®½ºÆ®>");
 
@@ -35,11 +35,10 @@ public class MyCalorie {
 		System.out.println("³ªÀÇ Ä®·Î¸® : " + myCalorie + "cal");
 		System.out.println();
 
-		if(  myCalorie - standard < 0 ) {
-			//Á¦ÀÏ¸»¶úÀ»¶§
+		if(  myCalorie - standard < 0 ) { //Á¦ÀÏ¸»¶úÀ»¶§
 			System.out.println("(x_x)"+" ±¾¾îÁ×°ÚÀ½" );
 		}else if( 0 <= myCalorie - standard &&  myCalorie - standard < 200  ) {
-			System.out.println("(;_;)"+"¹è°íÆÄ¼­ ´«¹°³²"); //´ú¸¶¸¥
+			System.out.println("(;_;)"+"¹è°íÆÄ¼­ ´«¹°³²"); //¸¹ÀÌ¸¶¸¥
 		}else if( 201 <= myCalorie - standard &&  myCalorie - standard < 400  ) {
 			System.out.println("( +_+)"+"¹è°íÇÄ.."); //´ú¸¶¸¥
 		}else if( 401 <= myCalorie - standard &&  myCalorie - standard < 600  ) {
@@ -52,7 +51,7 @@ public class MyCalorie {
 			System.out.println("  ( -  ¤Ñ   - )"+"³Ê¹«¸¹ÀÌ¸ÔÀ½"); //¸¹ÀÌ¶×¶×
 		}else if( 1201 <= myCalorie - standard &&  myCalorie - standard < 1400  ) {
 			System.out.println("( ; -  ¤Ñ¤Ñ    -  )"+"½º¸ð¼±¼ö°°¾Æ"); //½É°¢ÇÑ¶×¶×
-		}else if( 1401 <= myCalorie - standard &&  myCalorie - standard < 1600  ) {
+		}else if( 1401 <= myCalorie - standard  ) {
 			System.out.println("( ; -    X    -)"+"°íµµºñ¸¸");//¿Õ¶×¶×
 		}
 

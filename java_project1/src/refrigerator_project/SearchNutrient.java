@@ -12,7 +12,6 @@ public class SearchNutrient {
 		this.foodArr = foodArr;
 		int count = 0;
 
-		System.out.println(foodArr.size());
 		System.out.print("음식 검색 : ");
 		String input = scanner.nextLine();
 		

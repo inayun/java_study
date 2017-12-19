@@ -13,13 +13,10 @@ public class Main {
 		View view = new View();
 		User user = new User();
 		
-		//시작 뷰 출력과 함께 아이디 입력받기
 		view.startView();
-		
 		System.out.print("아이디 : ");
 		user.setId(scanner.next());
 		
-		//아이디 로더하기
 		try {
 			UserLoader loader = new UserLoader(user);
 			user = loader.getUser();
