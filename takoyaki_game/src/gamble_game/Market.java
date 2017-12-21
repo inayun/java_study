@@ -10,14 +10,21 @@ public class Market {
 	static int tray = 0;
 	int flow = 0;
 	int time = 0;
+	static int originalMoney = 0;
 	
 	public Market() {};
 	
-	public Market(int money) {
+	public Market(int money, int tray) {
 		user= new User(money);
+		originalMoney = money;
+		this.tray = tray;
 	}
 	public User getUser() {
 		return this.user;
+	}
+	
+	public int getTray() {
+		return tray;
 	}
 	
 	public int passTime() {
@@ -50,7 +57,6 @@ public class Market {
 	public void calculateFlow() {
 		//»ó½Â·ü¸¸Å­ µ·À» °è»ê.
 		tray += (((tray/100)*2)*flow);
-		System.out.println(tray);
 	}
 	
 }

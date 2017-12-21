@@ -3,10 +3,10 @@ package gamble_game;
 import java.util.Scanner;
 
 public class Main {
-	public static void gambleMain(int money) throws InterruptedException {
+	public static void gambleMain(int money, int tray) throws InterruptedException {
 		
 		UserInterFace ui = new UserInterFace(18,40);
-		Market market = new Market(money);
+		Market market = new Market(money,tray);
 		User user = market.getUser();
 		Scanner sc = new Scanner(System.in);
 		ui.ShowStart();
@@ -47,7 +47,6 @@ public class Main {
 
 			}
 		} catch (Exception e) {	
-			user.calMoney(Market.tray);
 			System.out.println("게임이 끝났습니다.");
 			System.out.println("내일 타코야끼 팔러가요.");
 			

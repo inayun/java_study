@@ -62,7 +62,7 @@ public class GamePlay implements Runnable{
 
 	public void makeTako() {
 		
-		order = new Random().nextInt(18)+1;
+		order = new Random().nextInt(takoyaki.getMoldCount())+1;
 		System.out.printf("타코야키 %d개 주문이요!\n",order);
 
 		outer : for(int i = 0; i < order; i++) {
@@ -97,6 +97,12 @@ public class GamePlay implements Runnable{
 		System.out.println("퀴즈를 풀어 타코야키가 타기전에 구워내라!");
 		System.out.println();
 
+		System.out.println("게임의 유형을 선택하세요");
+		System.out.println("1번 : 수학이 좋아용");
+		System.out.println("2번 : 영어가 좋아용");
+		System.out.println("3번 : 국어가 좋아용");
+		
+		
 		int a;
 		int b;
 		int correntCount = 0;
@@ -106,14 +112,18 @@ public class GamePlay implements Runnable{
 			if(correntCount == order) {
 				break outer;
 			}
+			
+			String quiz="";
+			for(int i = 0; i < 8; i++) {
+			a = new Random().nextInt(122-97+1)+97;
+			quiz += (char)a;
+			}
+			
+			System.out.printf(" %s = ", quiz);
 
-			a = new Random().nextInt(50)+1;
-			b = new Random().nextInt(50)+1;
-			System.out.printf(" %d + %d = ", a, b);
+			String answer = scanner.next();
 
-			int answer = scanner.nextInt();
-
-			if(answer == a+b) {
+			if(answer.equals(quiz)) {
 				correntCount++;
 				System.out.println("타코야키 1개 성공이요~");
 				inner : for(int x = 0; x < takoyaki.getMoldCount(); x++) {
@@ -161,18 +171,16 @@ public class GamePlay implements Runnable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("저장완료!");
 	}
-	public void checkMoney(int money) {
+	public void checkMoney(int money, int tray) {
 		
 		user.setFinalMoney(money);
-		System.out.println(user.getMoney());
+		user.setTray(tray);
 		try {
 			UserWriter writer = new UserWriter(user);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("저장완료!");
 	}
 	
 

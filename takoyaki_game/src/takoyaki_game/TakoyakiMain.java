@@ -20,8 +20,8 @@ public class TakoyakiMain {
 		Thread.sleep(2000);
 		System.out.println("오늘 하루도 수고했어요~! 내일은 주식으로 돈 불리자~");
 		Thread.sleep(2000);
-		gambleGame.gambleMain(gameplay.user.getMoney());
-		gameplay.checkMoney(gambleMarket.getUser().getBalance());
+		gambleGame.gambleMain(gameplay.user.getMoney(),gameplay.user.getTray());
+		gameplay.checkMoney(gambleMarket.getUser().getBalance(),gambleMarket.getTray());
 		
 		
 	}

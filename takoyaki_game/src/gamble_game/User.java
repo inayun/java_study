@@ -17,7 +17,4 @@ public class User {
 	public void withdrawBalance(int n) {
 		this.balance -= n;
 	}
-	public void calMoney (int tray) {
-		balance += tray;
-	}
 }

@@ -6,6 +6,7 @@ public class User implements Serializable{
 
 	private String id;
 	private int money;
+	private int tray;
 	
 	public String getId() {
 		return id;
@@ -21,6 +22,12 @@ public class User implements Serializable{
 	}
 	public void setFinalMoney(int money) {
 		this.money = money;
+	}
+	public int getTray() {
+		return tray;
+	}
+	public void setTray(int tray) {
+		this.tray += tray;
 	}
 	
 }

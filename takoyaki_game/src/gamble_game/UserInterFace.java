@@ -136,11 +136,11 @@ public class UserInterFace implements Runnable{
 			System.out.print(backBoard[i]);
 			System.out.print("       ");
 			if(i == backBoard.length/3) {
-				System.out.print(">목표 금액 :	"+Market.goal);
+				System.out.print(">원        금 :	"+Market.originalMoney);
 			}else if(i == backBoard.length/3+1) {
-				System.out.print(">내        돈:       "+User.balance);
+				System.out.print(">내        돈:  "+User.balance);
 			}else if(i == backBoard.length/3+2) {
-				System.out.print(">채        권:       "+Market.tray);
+				System.out.print(">채        권:  "+Market.tray);
 			}
 			System.out.println();
 		}
