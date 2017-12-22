@@ -93,6 +93,12 @@ public class GamePlay implements Runnable{
 	}
 
 	public void makeQuiz() {
+		
+		int a = 0;
+		int b = 0;
+		int correntCount = 0;
+		
+		
 		System.out.println("타이머는 눌러졌다!");
 		System.out.println("퀴즈를 풀어 타코야키가 타기전에 구워내라!");
 		System.out.println();
@@ -103,63 +109,127 @@ public class GamePlay implements Runnable{
 		System.out.println("3번 : 국어가 좋아용");
 		
 		
-		int a;
-		int b;
-		int correntCount = 0;
-		//주문 개수 만큼 문제 출제
-		outer : while(true) {
+		switch(scanner.nextInt()) {
+		
+		case 1 : //수학
+			correntCount = 0;
+			//주문 개수 만큼 문제 출제
+			outer : while(true) {
 
-			if(correntCount == order) {
-				break outer;
-			}
-			
-			String quiz="";
-			for(int i = 0; i < 8; i++) {
-			a = new Random().nextInt(122-97+1)+97;
-			quiz += (char)a;
-			}
-			
-			System.out.printf(" %s = ", quiz);
+				if(correntCount == order) {
+					break outer;
+				}
+				
+				a = new Random().nextInt(100);
+				b = new Random().nextInt(100);
+				
+				System.out.printf(" %d + %d = ", a, b);
 
-			String answer = scanner.next();
+				int answer = scanner.nextInt();
 
-			if(answer.equals(quiz)) {
-				correntCount++;
-				System.out.println("타코야키 1개 성공이요~");
-				inner : for(int x = 0; x < takoyaki.getMoldCount(); x++) {
-					if(takoyaki.getBall(x)== process[0]) {
-						takoyaki.setBall(x, process[3]);
-						System.out.println("우엑! 밀가루가 안익었자나! 옜다 500원");
-						user.setMoney(500);
-						break inner;
-					} else if(takoyaki.getBall(x) == process[1]) {
-						takoyaki.setBall(x, process[3]);
-						System.out.println("오홍홍홍 노릇하게 잘 구워졌네요 1000원이요~");
-						user.setMoney(1000);
-						break inner;
-					} else if(takoyaki.getBall(x) == process[2]) {
-						takoyaki.setBall(x, process[3]);
-						System.out.println("꺄악 다 탔잖아요!장사를 하겠단거야뭐야 100원도 아까워!");
-						user.setMoney(100);
-						break inner;
+				if(answer == a+b) {
+					correntCount++;
+					System.out.println("타코야키 1개 성공이요~");
+					inner : for(int x = 0; x < takoyaki.getMoldCount(); x++) {
+						if(takoyaki.getBall(x)== process[0]) {
+							takoyaki.setBall(x, process[3]);
+							System.out.println("우엑! 밀가루가 안익었자나! 옜다 500원");
+							user.setMoney(500);
+							break inner;
+						} else if(takoyaki.getBall(x) == process[1]) {
+							takoyaki.setBall(x, process[3]);
+							System.out.println("오홍홍홍 노릇하게 잘 구워졌네요 1000원이요~");
+							user.setMoney(1000);
+							break inner;
+						} else if(takoyaki.getBall(x) == process[2]) {
+							takoyaki.setBall(x, process[3]);
+							System.out.println("꺄악 다 탔잖아요!장사를 하겠단거야뭐야 100원도 아까워!");
+							user.setMoney(100);
+							break inner;
+						}
 					}
 				}
-			}
 
-			int count = 0;
-			System.out.println(user.getMoney() + "원");
-			System.out.println("================");
-			for(int k = 0; k < mold.length; k++) {
-				for(int j = 0; j < mold[k].length; j++) {
-					System.out.print(takoyaki.getBall(count)+" ");
-					count++;
+				int count = 0;
+				System.out.println(user.getMoney() + "원");
+				System.out.println("================");
+				for(int k = 0; k < mold.length; k++) {
+					for(int j = 0; j < mold[k].length; j++) {
+						System.out.print(takoyaki.getBall(count)+" ");
+						count++;
+					}
+					System.out.println("");
 				}
-				System.out.println("");
-			}
-			System.out.println("================");
+				System.out.println("================");
 
 
-		} //문제 반복 출제
+			} //문제 반복 출제
+			break;
+		
+		case 2 : //영어
+			correntCount = 0;
+			//주문 개수 만큼 문제 출제
+			outer : while(true) {
+
+				if(correntCount == order) {
+					break outer;
+				}
+				
+				String quiz="";
+				for(int i = 0; i < 8; i++) {
+				a = new Random().nextInt(122-97+1)+97;
+				quiz += (char)a;
+				}
+				
+				System.out.printf(" %s = ", quiz);
+
+				String answer = scanner.next();
+
+				if(answer.equals(quiz)) {
+					correntCount++;
+					System.out.println("타코야키 1개 성공이요~");
+					inner : for(int x = 0; x < takoyaki.getMoldCount(); x++) {
+						if(takoyaki.getBall(x)== process[0]) {
+							takoyaki.setBall(x, process[3]);
+							System.out.println("우엑! 밀가루가 안익었자나! 옜다 500원");
+							user.setMoney(500);
+							break inner;
+						} else if(takoyaki.getBall(x) == process[1]) {
+							takoyaki.setBall(x, process[3]);
+							System.out.println("오홍홍홍 노릇하게 잘 구워졌네요 1000원이요~");
+							user.setMoney(1000);
+							break inner;
+						} else if(takoyaki.getBall(x) == process[2]) {
+							takoyaki.setBall(x, process[3]);
+							System.out.println("꺄악 다 탔잖아요!장사를 하겠단거야뭐야 100원도 아까워!");
+							user.setMoney(100);
+							break inner;
+						}
+					}
+				}
+
+				int count = 0;
+				System.out.println(user.getMoney() + "원");
+				System.out.println("================");
+				for(int k = 0; k < mold.length; k++) {
+					for(int j = 0; j < mold[k].length; j++) {
+						System.out.print(takoyaki.getBall(count)+" ");
+						count++;
+					}
+					System.out.println("");
+				}
+				System.out.println("================");
+
+
+			} //문제 반복 출제
+			break;
+			
+		case 3 : //국어
+			break;
+		
+		}
+		
+	
 	}
 
 	public void checkMoney() {
